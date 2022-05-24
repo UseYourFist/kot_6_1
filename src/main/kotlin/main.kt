@@ -23,7 +23,8 @@ fun main() {
         isPinned = false,
         markedAsAds = false,
         isFavorite = false,
-        postponedId = 0
+        postponedId = 0,
+        attachment = null
     )
 
     val lastPost = WallService.add(original)

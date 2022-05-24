@@ -26,7 +26,7 @@ class WallServiceTest {
             comments = Comment(),
             copyright = "C",
             likes = Like(),
-            reposts = Repost(),
+            reposts = null,
             views = 1,
             postType = "post",
             singerId = 333,
@@ -36,7 +36,8 @@ class WallServiceTest {
             isPinned = false,
             markedAsAds = false,
             isFavorite = false,
-            postponedId = 0
+            postponedId = 0,
+            attachment = null
         )
         val postInMassive = WallService.add(original)
         val result = 1
@@ -68,7 +69,8 @@ class WallServiceTest {
             isPinned = false,
             markedAsAds = false,
             isFavorite = false,
-            postponedId = 0
+            postponedId = 0,
+            attachment = null
         )
         WallService.add(original)
         val result = true
@@ -100,7 +102,8 @@ class WallServiceTest {
             isPinned = false,
             markedAsAds = false,
             isFavorite = false,
-            postponedId = 0
+            postponedId = 0,
+            attachment = null
         )
         WallService.add(original)
         val result = false
