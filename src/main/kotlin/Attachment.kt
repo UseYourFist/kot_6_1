@@ -1,26 +1,25 @@
 abstract class Attachment (
-    val type: String,
-    val attached: Any
+    open val type: String,
         )
 
 
-class PhotoAttachment (
-    type: String = "photo", photo: Photo): Attachment(type, photo)
+data class PhotoAttachment (
+    override val type: String = "photo", val photo: Photo): Attachment(type)
 
-class VideoAttachment (
-    type: String = "video", video: Video): Attachment(type, video)
+data class VideoAttachment (
+    override val type: String = "video", val video: Video): Attachment(type)
 
-class AudioAttachment (
-    type: String = "audio", audio: Audio): Attachment(type, audio)
+data class AudioAttachment (
+    override val type: String = "audio", val audio: Audio): Attachment(type)
 
-class DocAttachment (
-    type: String = "doc", doc: Doc): Attachment(type, doc)
+data class DocAttachment (
+    override val type: String = "doc", val doc: Doc): Attachment(type)
 
-class NoteAttachment (
-    type: String = "note", note: Note): Attachment(type, note)
+data class NoteAttachment (
+    override val type: String = "note", val note: Note): Attachment(type)
 
 
-class Photo(
+data class Photo(
     val id: Int,
     val albumId: Int,
     val ownerId: Int,
@@ -32,7 +31,7 @@ class Photo(
     val height: Int
         )
 
-class Video(
+data class Video(
     val id: Int,
     val ownerId: Int,
     val title: String,
@@ -75,7 +74,7 @@ class Video(
     val repost: Repost
         )
 
-class Audio(
+data class Audio(
     val id: Int,
     val ownerId: Int,
     val artist: String,
@@ -90,7 +89,7 @@ class Audio(
     val isHq: Int
         )
 
-class Doc(
+data class Doc(
     val id: Int,
     val ownerId: Int,
     val title: String,
@@ -102,7 +101,7 @@ class Doc(
     val preview: Any
         )
 
-class Note(
+data class Note(
     val id: Int,
     val ownerId: Int,
     val title: String,
