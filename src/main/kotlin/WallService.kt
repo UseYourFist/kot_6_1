@@ -1,6 +1,8 @@
 object WallService {
-    private var posts = emptyArray<Post>()
-    private var nextId =0
+//    private
+    var posts = emptyArray<Post>()
+    private var comments = emptyArray<Comment>()
+    private var nextId = 0
 
     fun add(post: Post): Post {
         val postWithId = post.copy(id = nextId)
@@ -10,7 +12,7 @@ object WallService {
     }
 
     fun update(post: Post): Boolean {
-        return if (post.id < nextId) {
+        return if (posts.getOrNull(post.id) != null) {
             val postWithNewText = post.copy(text = "new")
             posts[post.id] = postWithNewText
             true
@@ -19,7 +21,17 @@ object WallService {
         }
     }
 
+    fun createComment(postId: Int, comment: Comment): Comment {
+        if (posts.getOrNull(postId) != null) {
+            comments += comment
+            return comments.last()
+        } else {
+            throw PostNotFoundException("no post with id $postId")
+        }
+    }
+
     fun clear() {
         posts = emptyArray<Post>()
+        nextId = 0
     }
 }

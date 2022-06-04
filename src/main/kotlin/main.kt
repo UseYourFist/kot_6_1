@@ -10,7 +10,7 @@ fun main() {
         replyOwnerId = 777,
         replyPostId = 888,
         friendsOnly = false,
-        comments = Comment(),
+        comments = null,
         copyright = "C",
         likes = Like(),
         reposts = Repost(),
@@ -27,7 +27,22 @@ fun main() {
         attachment = null
     )
 
+    val commentToPost = Comment(
+        id = 0,
+        fromId = 0,
+        date = 555,
+        text = "Hey",
+        donut = null,
+        replyToUser = 1,
+        replyToComment = 1,
+        attachment = null,
+        parentsStack = null,
+        thread = 1
+    )
+
     val lastPost = WallService.add(original)
-    println(lastPost)
+    println(lastPost.id)
     println(WallService.update(lastPost))
+    println(lastPost.id)
+    println(WallService.createComment(0, commentToPost))
 }
