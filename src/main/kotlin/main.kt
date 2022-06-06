@@ -40,9 +40,20 @@ fun main() {
         thread = 1
     )
 
+    val note = Note (
+        title = "first",
+        text = "second",
+        privacy = 1,
+        commentPrivacy = 1,
+        privacyView = null,
+        privacyComment = null
+            )
+
     val lastPost = WallService.add(original)
     println(lastPost.id)
     println(WallService.update(lastPost))
     println(lastPost.id)
     println(WallService.createComment(0, commentToPost))
+    println(NoteServise.add(note))
+
 }

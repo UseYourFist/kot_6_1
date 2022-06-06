@@ -1,6 +1,6 @@
 object WallService {
-//    private
-    var posts = emptyArray<Post>()
+
+    private var posts = emptyArray<Post>()
     private var comments = emptyArray<Comment>()
     private var nextId = 0
 
