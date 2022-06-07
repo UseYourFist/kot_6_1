@@ -1,5 +1,5 @@
 data class Note (
-    val noteId: Int,
+    val id: Int,
     val title: String,
     val text: String,
     val privacy: Int,

@@ -1,8 +1,12 @@
 object NoteServise: CrudService<Note> {
+
     private var notes = mutableListOf<Note>()
+    private var nextId = 0
 
     override fun add(note: Note): Int {
-        notes.add(note)
+        val noteWithId = note.copy(id = nextId)
+        notes.add(noteWithId)
+        nextId += 1
         return notes.lastIndex
     }
 
@@ -13,7 +17,7 @@ object NoteServise: CrudService<Note> {
 
     override fun edit(thing: Note): Boolean {
         for ((index, item) in notes.withIndex()) {
-            if (item.noteId == thing.noteId)
+            if (item.id == thing.id)
         }
     }
 
