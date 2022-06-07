@@ -6,12 +6,15 @@ object NoteServise: CrudService<Note> {
         return notes.lastIndex
     }
 
-    override fun delete(id: Int) {
-        TODO("Not yet implemented")
+    override fun delete(id: Int): Boolean {
+        notes.removeAt(id)
+        return true
     }
 
-    override fun edit(thing: Note) {
-        TODO("Not yet implemented")
+    override fun edit(thing: Note): Boolean {
+        for ((index, item) in notes.withIndex()) {
+            if (item.noteId == thing.noteId)
+        }
     }
 
     override fun read(id: Int) {
