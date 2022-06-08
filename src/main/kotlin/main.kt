@@ -29,6 +29,7 @@ fun main() {
 
     val commentToPost = Comment(
         id = 0,
+        noteId = null,
         fromId = 0,
         date = 555,
         text = "Hey",
@@ -41,6 +42,7 @@ fun main() {
     )
 
     val note = Note (
+        id = 0,
         title = "first",
         text = "second",
         privacy = 1,

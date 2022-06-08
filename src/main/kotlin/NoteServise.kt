@@ -17,12 +17,33 @@ object NoteServise: CrudService<Note> {
 
     override fun edit(thing: Note): Boolean {
         for ((index, item) in notes.withIndex()) {
-            if (item.id == thing.id)
+            if (item.id == thing.id) {
+                notes[index] = thing
+                return true
+            }
         }
+        return false
     }
 
     override fun read(id: Int) {
-        TODO("Not yet implemented")
+        println(notes[id])
+    }
+
+    fun get() {
+        for (note in notes) {
+            println(note)
+        }
+    }
+
+    fun getById(id: Int) {
+        println(notes[id])
+    }
+
+    fun getToComment (id: Int): Boolean {
+        if (notes.getOrNull(id) != null) {
+            return true
+        }
+        return false
     }
 
 }
