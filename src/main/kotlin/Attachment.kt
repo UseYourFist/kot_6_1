@@ -15,8 +15,8 @@ data class AudioAttachment (
 data class DocAttachment (
     override val type: String = "doc", val doc: Doc): Attachment(type)
 
-data class NoteAttachment (
-    override val type: String = "note", val note: Note): Attachment(type)
+data class NoteFileAttachment (
+    override val type: String = "noteFile", val noteFile: NoteFile): Attachment(type)
 
 
 data class Photo(
@@ -101,7 +101,7 @@ data class Doc(
     val preview: Any
         )
 
-data class Note(
+data class NoteFile(
     val id: Int,
     val ownerId: Int,
     val title: String,
