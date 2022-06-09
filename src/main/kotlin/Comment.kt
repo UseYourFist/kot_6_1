@@ -9,6 +9,7 @@ data class Comment (
     val replyToComment: Int?,
     val attachment: Attachment?,
     val parentsStack: Array<Any>?,
-    val thread: Any?
+    val thread: Any?,
+    val deleted: Boolean
         ) {
 }

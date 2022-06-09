@@ -4,9 +4,9 @@ object CommentService: CrudService<Comment> {
     private var nextId = 0
 
     override fun add(comment: Comment): Int {
-        if (NoteServise.getToComment(comment.noteId)) {
-            val noteWithId = comment.copy(id = nextId)
-            comments.add(noteWithId)
+        if (NoteServise.getToComment(comment.noteId!!)) {
+            val commentWithId = comment.copy(id = nextId)
+            comments.add(commentWithId)
             nextId += 1
             return comments.lastIndex
         }
@@ -14,8 +14,10 @@ object CommentService: CrudService<Comment> {
         return 0
     }
 
-    override fun delete(id: Int): Boolean {
-        TODO("Not yet implemented")
+    override fun delete(idDeleted: Int): Boolean {
+        var commentDeleted = comments[idDeleted].copy(deleted = true)
+        comments[idDeleted] = commentDeleted
+        return true
     }
 
     override fun edit(comment: Comment): Boolean {
