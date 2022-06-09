@@ -115,6 +115,7 @@ class WallServiceTest {
         val commentToPost = Comment(
             id = 0,
             fromId = 0,
+            noteId = null,
             date = 555,
             text = "Hey",
             donut = null,
@@ -122,7 +123,8 @@ class WallServiceTest {
             replyToComment = 1,
             attachment = null,
             parentsStack = null,
-            thread = 1
+            thread = 1,
+            deleted = false
         )
         val original = Post(
             id = 0,
@@ -161,6 +163,7 @@ class WallServiceTest {
         val commentToPost = Comment(
             id = 0,
             fromId = 0,
+            noteId = null,
             date = 555,
             text = "Hey",
             donut = null,
@@ -168,7 +171,8 @@ class WallServiceTest {
             replyToComment = 1,
             attachment = null,
             parentsStack = null,
-            thread = 1
+            thread = 1,
+            deleted = false
         )
         val commentInMassive = WallService.createComment(0, commentToPost)
     }

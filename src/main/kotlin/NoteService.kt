@@ -1,4 +1,4 @@
-object NoteServise: CrudService<Note> {
+object NoteService: CrudService<Note> {
 
     private var notes = mutableListOf<Note>()
     private var nextId = 0
@@ -11,6 +11,7 @@ object NoteServise: CrudService<Note> {
     }
 
     override fun delete(id: Int): Boolean {
+        CommentService.deleteCommentsToNote(id)
         notes.removeAt(id)
         return true
     }
@@ -25,18 +26,16 @@ object NoteServise: CrudService<Note> {
         return false
     }
 
-    override fun read(id: Int) {
-        println(notes[id])
+    override fun read(id: Int): Note {
+        return notes[id]
     }
 
-    fun get() {
-        for (note in notes) {
-            println(note)
-        }
+    fun get(id: Int): String {
+        return notes.joinToString(", ")
     }
 
-    fun getById(id: Int) {
-        println(notes[id])
+    fun getById(id: Int): Note {
+        return notes[id]
     }
 
     fun getToComment (id: Int): Boolean {
@@ -44,6 +43,11 @@ object NoteServise: CrudService<Note> {
             return true
         }
         return false
+    }
+
+    fun clear() {
+        notes = mutableListOf<Note>()
+        nextId = 0
     }
 
 }

@@ -38,7 +38,8 @@ fun main() {
         replyToComment = 1,
         attachment = null,
         parentsStack = null,
-        thread = 1
+        thread = 1,
+        deleted = false
     )
 
     val note = Note (
@@ -56,6 +57,6 @@ fun main() {
     println(WallService.update(lastPost))
     println(lastPost.id)
     println(WallService.createComment(0, commentToPost))
-    println(NoteServise.add(note))
+    println(NoteService.add(note))
 
 }
