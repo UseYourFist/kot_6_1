@@ -35,6 +35,7 @@ class NoteServiceTest {
             privacyView = null,
             privacyComment = null,
         )
+        CommentService.clear()
         NoteService.add(note)
         assertEquals(NoteService.delete(0), true)
     }

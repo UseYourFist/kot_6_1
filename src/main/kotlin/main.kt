@@ -52,11 +52,15 @@ fun main() {
         privacyComment = null
             )
 
-    val lastPost = WallService.add(original)
-    println(lastPost.id)
-    println(WallService.update(lastPost))
-    println(lastPost.id)
-    println(WallService.createComment(0, commentToPost))
-    println(NoteService.add(note))
+//    val lastPost = WallService.add(original)
+//    println(lastPost.id)
+//    println(WallService.update(lastPost))
+//    println(lastPost.id)
+//    println(WallService.createComment(0, commentToPost))
+//    println(NoteService.add(note))
+//    CommentService.add(commentToPost)
+//    CommentService.edit(commentToPost)
+//    println(NoteService.add(note))
+//    println(NoteService.delete(0))
 
 }

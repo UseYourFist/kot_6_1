@@ -75,6 +75,16 @@ class CommentServiceTest {
             thread = 1,
             deleted = false
         )
+        val note = Note(
+            id = 0,
+            title = "new",
+            text = "note",
+            privacy = null,
+            commentPrivacy = null,
+            privacyView = null,
+            privacyComment = null,
+        )
+        NoteService.add(note)
         CommentService.add(comment)
         assertEquals(CommentService.delete(0), true)
 
@@ -96,6 +106,16 @@ class CommentServiceTest {
             thread = 1,
             deleted = true
         )
+        val note = Note(
+            id = 0,
+            title = "new",
+            text = "note",
+            privacy = null,
+            commentPrivacy = null,
+            privacyView = null,
+            privacyComment = null,
+        )
+        NoteService.add(note)
         CommentService.add(comment)
         CommentService.delete(0)
     }
@@ -116,6 +136,17 @@ class CommentServiceTest {
             thread = 1,
             deleted = false
         )
+        val note = Note(
+            id = 0,
+            title = "new",
+            text = "note",
+            privacy = null,
+            commentPrivacy = null,
+            privacyView = null,
+            privacyComment = null,
+        )
+        NoteService.add(note)
+        CommentService.add(comment)
         assertEquals(CommentService.edit(comment), true)
     }
 
@@ -135,7 +166,18 @@ class CommentServiceTest {
             thread = 1,
             deleted = false
         )
-        assertEquals(CommentService.read(0), comment.toString())
+        val note = Note(
+            id = 0,
+            title = "new",
+            text = "note",
+            privacy = null,
+            commentPrivacy = null,
+            privacyView = null,
+            privacyComment = null,
+        )
+        NoteService.add(note)
+        CommentService.add(comment)
+        assertEquals(CommentService.read(0), comment)
     }
 
     @Test
@@ -184,6 +226,16 @@ class CommentServiceTest {
             thread = 1,
             deleted = true
         )
+        val note = Note(
+            id = 0,
+            title = "new",
+            text = "note",
+            privacy = null,
+            commentPrivacy = null,
+            privacyView = null,
+            privacyComment = null,
+        )
+        NoteService.add(note)
         CommentService.add(comment)
         assertEquals(CommentService.restoreComment(0), true)
     }
@@ -204,6 +256,16 @@ class CommentServiceTest {
             thread = 1,
             deleted = false
         )
+        val note = Note(
+            id = 0,
+            title = "new",
+            text = "note",
+            privacy = null,
+            commentPrivacy = null,
+            privacyView = null,
+            privacyComment = null,
+        )
+        NoteService.add(note)
         CommentService.add(comment)
         CommentService.restoreComment(0)
     }
